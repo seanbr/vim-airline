@@ -26,13 +26,13 @@ describe 'section'
     Expect s == '%{airline#util#prepend("text",0)}%{airline#util#wrap("text",0)}'
   end
 
-  it 'should prefix with highlight group if provided'
+  it 'should prefix with accent group if provided'
     call airline#parts#define('hi', {
           \ 'raw': 'hello',
-          \ 'highlight': 'hlgroup',
+          \ 'accent': 'red',
           \ })
     let s = airline#section#create(['hi'])
-    Expect s == '%#hlgroup#hello'
+    Expect s == '%#__accent_red#hello'
   end
 
   it 'should parse out a section from the distro'
@@ -47,13 +47,13 @@ describe 'section'
 
   it 'should force add separators for raw and missing keys'
     let s = airline#section#create_left(['asdf', 'raw'])
-    Expect s == 'asdf > raw'
+    Expect s == 'asdf > raw'
     let s = airline#section#create_left(['asdf', 'aaaa', 'raw'])
-    Expect s == 'asdf > aaaa > raw'
+    Expect s == 'asdf > aaaa > raw'
     let s = airline#section#create_right(['raw', '%f'])
-    Expect s == 'raw < %f'
+    Expect s == 'raw < %f'
     let s = airline#section#create_right(['%t', 'asdf', '%{getcwd()}'])
-    Expect s == '%t < asdf < %{getcwd()}'
+    Expect s == '%t < asdf < %{getcwd()}'
   end
 
   it 'should empty out parts that do not pass their condition'

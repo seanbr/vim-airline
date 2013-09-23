@@ -28,7 +28,7 @@ describe 'init'
   end
 
   it 'section c should be file'
-    Expect g:airline_section_c == '%<%f%m'
+    Expect g:airline_section_c == '%<%f%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
   end
 
   it 'section x should be filetype'
@@ -42,7 +42,7 @@ describe 'init'
 
   it 'section z should be line numbers'
     Expect g:airline_section_z =~ '%3p%%'
-    Expect g:airline_section_z =~ '%3l'
+    Expect g:airline_section_z =~ '%4l'
     Expect g:airline_section_z =~ '%3c'
   end
 
