@@ -11,10 +11,10 @@ let s:loaded = 0
 function! airline#init#bootstrap()
   if s:loaded | return | endif | let s:loaded = 1
 
-  call s:check_defined('g:airline_left_sep', get(g:, 'airline_powerline_fonts', 0)?"":">")
-  call s:check_defined('g:airline_left_alt_sep', get(g:, 'airline_powerline_fonts', 0)?"":">")
-  call s:check_defined('g:airline_right_sep', get(g:, 'airline_powerline_fonts', 0)?"":"<")
-  call s:check_defined('g:airline_right_alt_sep', get(g:, 'airline_powerline_fonts', 0)?"":"<")
+  call s:check_defined('g:airline_left_sep', get(g:, 'airline_powerline_fonts', 0)?"⮀":">")
+  call s:check_defined('g:airline_left_alt_sep', get(g:, 'airline_powerline_fonts', 0)?"⮁":">")
+  call s:check_defined('g:airline_right_sep', get(g:, 'airline_powerline_fonts', 0)?"⮂":"<")
+  call s:check_defined('g:airline_right_alt_sep', get(g:, 'airline_powerline_fonts', 0)?"⮃":"<")
   call s:check_defined('g:airline_detect_modified', 1)
   call s:check_defined('g:airline_detect_paste', 1)
   call s:check_defined('g:airline_detect_iminsert', 0)
@@ -51,10 +51,10 @@ function! airline#init#bootstrap()
   call s:check_defined('g:airline_symbols', {})
   call extend(g:airline_symbols, {
         \ 'paste': get(g:, 'airline_paste_symbol', 'PASTE'),
-        \ 'readonly': get(g:, 'airline_readonly_symbol', get(g:, 'airline_powerline_fonts', 0) ? '' : 'RO'),
+        \ 'readonly': get(g:, 'airline_readonly_symbol', get(g:, 'airline_powerline_fonts', 0) ? 'RO' : 'RO'),
         \ 'whitespace': get(g:, 'airline_powerline_fonts', 0) ? '✹' : '!',
-        \ 'linenr': get(g:, 'airline_linecolumn_prefix', get(g:, 'airline_powerline_fonts', 0) ? '' : ':' ),
-        \ 'branch': get(g:, 'airline_branch_prefix', get(g:, 'airline_powerline_fonts', 0) ? '' : ''),
+        \ 'linenr': get(g:, 'airline_linecolumn_prefix', get(g:, 'airline_powerline_fonts', 0) ? '↳' : ':' ),
+        \ 'branch': get(g:, 'airline_branch_prefix', get(g:, 'airline_powerline_fonts', 0) ? '⭠' : ''),
         \ 'modified': '+',
         \ }, 'keep')
 
